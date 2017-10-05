@@ -6,10 +6,10 @@
   "keywords": ["observable", "redux", "json", "api", "jsonapi"],
   "scripts": {
     "build": "rimraf lib && tsc --project config/build-tsconfig.json",
-    "tdd": "jest --config jest.json --watch",
-    "test": "jest --config jest.json",
-    "test:nocache": "jest --config jest.json --no-cache",
-    "test:update": "jest --config jest.json -u",
+    "tdd": "jest --watch",
+    "test": "jest",
+    "test:nocache": "jest --no-cache",
+    "test:update": "jest -u",
     "lint": "tslint --project tsconfig.json --type-check",
     "precommit": "lint-staged"
   },
@@ -50,5 +50,20 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "jest": {
+    "automock": false,
+    "moduleFileExtensions": ["ts", "js"],
+    "transform": {
+      ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
+    "notify": false,
+    "verbose": true,
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    }
   }
 }
