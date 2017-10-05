@@ -1,10 +1,17 @@
 {
   "name": "observable-redux-json-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "lib/jsonapi.js",
   "license": "MIT",
+  "author": {
+    "name": "Krister Kari",
+    "url": "https://github.com/kristerkari/"
+  },
+  "files": ["docs", "lib", "src", "README.md"],
   "keywords": ["observable", "redux", "json", "api", "jsonapi"],
   "scripts": {
+    "prerelease": "yarn build",
+    "release": "npmpub",
     "build": "rimraf lib && tsc --project config/build-tsconfig.json",
     "tdd": "jest --watch",
     "test": "jest",
@@ -22,6 +29,7 @@
     "jest": "^21.2.1",
     "lint-staged": "^4.2.3",
     "nock": "^9.0.22",
+    "npmpub": "^3.1.0",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.2",
     "rxjs": "^5.4.3",
