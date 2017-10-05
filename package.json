@@ -2,12 +2,13 @@
   "name": "observable-redux-json-api",
   "version": "0.0.1",
   "main": "lib/jsonapi.js",
+  "types": "index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Krister Kari",
     "url": "https://github.com/kristerkari/"
   },
-  "files": ["docs", "lib", "src", "README.md"],
+  "files": ["docs", "lib", "src", "README.md", "index.d.ts"],
   "keywords": ["observable", "redux", "json", "api", "jsonapi"],
   "scripts": {
     "prerelease": "yarn build",
@@ -31,6 +32,8 @@
     "nock": "^9.0.22",
     "npmpub": "^3.1.0",
     "prettier": "^1.7.4",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.2",
     "rxjs": "^5.4.3",
     "ts-jest": "^21.0.1",
@@ -48,8 +51,9 @@
     "redux-actions": "^2.2.1"
   },
   "peerDependencies": {
+    "redux": ">=3.0.0",
     "redux-thunk": ">=1.0.0",
-    "rxjs": "^5.4.3"
+    "rxjs": ">=5.0.0"
   },
   "lint-staged": {
     "**/*.json": ["prettier --write", "git add"],
