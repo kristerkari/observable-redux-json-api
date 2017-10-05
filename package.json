@@ -1,6 +1,6 @@
 {
   "name": "observable-redux-json-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/jsonapi.js",
   "types": "index.d.ts",
   "license": "MIT",
