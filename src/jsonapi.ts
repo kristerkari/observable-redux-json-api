@@ -9,7 +9,7 @@ import {
   setIsInvalidatingForExistingResource,
   updateOrInsertResourcesIntoState
 } from "./state-mutation";
-import { apiRequest, getPaginationUrl } from "./utils";
+import { apiRequest } from "./utils";
 
 const {
   API_SET_ENDPOINT_HOST,
@@ -92,25 +92,6 @@ export const createResource = resource => {
   };
 };
 
-class ApiResponse {
-  body: any;
-  dispatch: any;
-  nextUrl: string;
-  prevUrl: string;
-  constructor(response: any, dispatch: any, nextUrl: string, prevUrl: string) {
-    this.body = response;
-    this.dispatch = dispatch;
-    this.nextUrl = nextUrl;
-    this.prevUrl = prevUrl;
-  }
-
-  // tslint:disable no-use-before-declare
-  loadNext = () => this.dispatch(readEndpoint(this.nextUrl));
-
-  loadPrev = () => this.dispatch(readEndpoint(this.prevUrl));
-  // tslint:enable no-use-before-declare
-}
-
 export const readEndpoint = (
   endpoint,
   {
@@ -131,11 +112,7 @@ export const readEndpoint = (
     })
       .switchMap(json => {
         dispatch(apiRead({ endpoint, options, ...json }));
-
-        const nextUrl = getPaginationUrl(json, "next", apiHost, apiPath);
-        const prevUrl = getPaginationUrl(json, "prev", apiHost, apiPath);
-
-        return Observable.of(new ApiResponse(json, dispatch, nextUrl, prevUrl));
+        return Observable.of(json);
       })
       .catch(error => {
         const err = error;
