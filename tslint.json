@@ -1,0 +1,92 @@
+{
+  "extends": ["tslint-eslint-rules"],
+  "rules": {
+    "no-duplicate-imports": true,
+    "comment-format": [true, "check-space"],
+    "import-blacklist": [true, "rxjs"],
+    "interface-over-type-literal": false,
+    "member-access": false,
+    "member-ordering": [
+      true,
+      {
+        "order": "statics-first"
+      }
+    ],
+    "no-inferrable-types": [true],
+    "no-import-side-effect": [
+      false,
+      {
+        "ignore-module": "^rxjs/"
+      }
+    ],
+    "no-invalid-this": [true, "check-function-in-method"],
+    "curly": true,
+    "unified-signatures": true,
+    "await-promise": true,
+    "prefer-const": true,
+    "promise-function-async": true,
+    "new-parens": true,
+    "label-position": true,
+    "no-multi-spaces": true,
+    "ter-func-call-spacing": [true, "never"],
+    "no-consecutive-blank-lines": [true, 1],
+    "no-non-null-assertion": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-duplicate-variable": true,
+    "no-empty": true,
+    "no-eval": true,
+    "no-floating-promises": true,
+    "no-for-in-array": true,
+    "no-inferred-empty-object-type": true,
+    "no-invalid-template-strings": true,
+    "no-misused-new": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
+    "no-string-throw": true,
+    "no-sparse-arrays": true,
+    "no-unbound-method": true,
+    "no-unsafe-finally": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "no-void-expression": false,
+    "radix": true,
+    "restrict-plus-operands": false,
+    "strict-type-predicates": true,
+    "switch-default": true,
+    "use-isnan": true,
+    "max-classes-per-file": [true, 1],
+    "max-file-line-count": [true, 1000],
+    "array-type": [true, "array-simple"],
+    "callable-types": true,
+    "class-name": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unused-variable": [true],
+    "object-literal-shorthand": false,
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": [true, "allow-declarations"],
+    "ordered-imports": [false],
+    "prefer-method-signature": false,
+    "triple-equals": [true, "allow-null-check"],
+    "no-parameter-reassignment": true,
+    "typedef": [
+      true,
+      "parameter",
+      "property-declaration",
+      "member-variable-declaration"
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case",
+      "allow-leading-underscore"
+    ]
+  }
+}

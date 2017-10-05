@@ -1,0 +1,10 @@
+{
+  "extends": "./tslint.json",
+  "rules": {
+    "no-trailing-whitespace": true,
+    "ordered-imports": true,
+    "object-literal-shorthand": true,
+    "linebreak-style": [true, "LF"],
+    "eofline": true
+  }
+}
