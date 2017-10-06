@@ -78,9 +78,9 @@ export const createResource = resource => {
         data: resource
       })
     })
-      .switchMap(json => {
+      .map(json => {
         dispatch(apiCreated(json));
-        return Observable.of(json);
+        return json;
       })
       .catch(error => {
         const err = error;
@@ -110,9 +110,9 @@ export const readEndpoint = (
       headers,
       withCredentials: true
     })
-      .switchMap(json => {
+      .map(json => {
         dispatch(apiRead({ endpoint, options, ...json }));
-        return Observable.of(json);
+        return json;
       })
       .catch(error => {
         const err = error;
@@ -139,9 +139,9 @@ export const updateResource = resource => {
         data: resource
       })
     })
-      .switchMap(json => {
+      .map(json => {
         dispatch(apiUpdated(json));
-        return Observable.of(json);
+        return json;
       })
       .catch(error => {
         const err = error;
@@ -165,9 +165,8 @@ export const deleteResource = resource => {
       method: "DELETE",
       withCredentials: true
     })
-      .switchMap(() => {
+      .do(() => {
         dispatch(apiDeleted(resource));
-        return Observable.of();
       })
       .catch(error => {
         const err = error;

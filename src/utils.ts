@@ -1,8 +1,8 @@
 import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/of";
-import "rxjs/add/observable/throw";
 import "rxjs/add/operator/catch";
-import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
 import { AjaxResponse } from "rxjs/observable/dom/AjaxObservable";
 
@@ -16,23 +16,21 @@ export const apiRequest = (url: string, options = {}): Observable<any> => {
     url,
     ...options,
     responseType: "json"
-  })
-    .switchMap((res: AjaxResponse): Observable<any> => {
-      if (res.status >= 200 && res.status < 300) {
-        if (res.status === 204) {
-          return Observable.of(res);
-        }
-        const header = res.xhr.getResponseHeader("Content-Type");
-        if (
-          typeof header === "string" &&
-          jsonContentTypes.some(contentType => header.indexOf(contentType) > -1)
-        ) {
-          return Observable.of(res.response);
-        }
+  }).map((res: AjaxResponse) => {
+    if (res.status >= 200 && res.status < 300) {
+      if (res.status === 204) {
+        return res;
       }
-      return Observable.of(res);
-    })
-    .catch((err: Response): Observable<any> => Observable.throw(err));
+      const header = res.xhr.getResponseHeader("Content-Type");
+      if (
+        typeof header === "string" &&
+        jsonContentTypes.some(contentType => header.indexOf(contentType) > -1)
+      ) {
+        return res.response;
+      }
+    }
+    return res;
+  });
 };
 
 export const hasOwnProperties = (obj, propertyTree) => {
