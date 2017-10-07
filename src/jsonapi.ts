@@ -1,7 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 const imm = require("object-path-immutable");
-import { Observable } from "rxjs/Observable";
 import actionTypes from "./constants";
+import { Observable } from "./rxjs-imports";
 import {
   addLinksToState,
   ensureResourceTypeInState,

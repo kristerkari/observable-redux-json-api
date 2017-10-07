@@ -1,6 +1,18 @@
 {
-  "extends": ["tslint-eslint-rules"],
+  "extends": ["tslint-eslint-rules", "rxjs-tslint-rules"],
   "rules": {
+    "rxjs-add": {
+      "options": [
+        {
+          "allowElsewhere": false,
+          "allowUnused": false,
+          "file": "./src/rxjs-imports.ts"
+        }
+      ],
+      "severity": "error"
+    },
+    "rxjs-no-wholesale": { "severity": "error" },
+    "rxjs-no-operator": { "severity": "error" },
     "no-duplicate-imports": true,
     "comment-format": [true, "check-space"],
     "import-blacklist": [true, "rxjs"],
