@@ -1,22 +1,27 @@
-
 language: node_js
 sudo: false
 git:
   depth: 1
 cache:
   directories:
-    - $HOME/.npm
-    - node_modules
+  - "$HOME/.npm"
+  - node_modules
 matrix:
   include:
-    - node_js: '8'
-      script: npm run lint
-      env: CI=pretest
-    - node_js: '8'
-      script: npm test -- --runInBand
-      env: CI=tests 8
-    - node_js: '6'
-      script: npm test -- --runInBand
-      env: CI=tests 6
+  - node_js: '8'
+    script: npm run lint
+    env: CI=pretest
+  - node_js: '8'
+    script: npm test -- --runInBand
+    env: CI=tests 8
+  - node_js: '6'
+    script: npm test -- --runInBand
+    env: CI=tests 6
 before_install:
-- npm install -g npm@latest
+- npm install -g npm@5
+- npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+env:
+  matrix:
+    secure: 6edPo14sJMKFSHHEKRy52jNmQINv/+0G+75g8y4LrSQ/s2aHoLORLvaKTE72QzNlKyf5sUAeGrzHRIaJCTkQBdjoDaVh748BH6xzNOK1D6MlOw18IVZbudHSge0bNv6vJhAvUE+3eq6gKcXiVKIUl5jjjWqJEH02666liKuLyIfQDkVqJzl5RnbpcPfLmUPc1INJOk1eoIvg02Vv2ssHwxx4yaSAMjsocl6nBWkLRmhwJ9r5co3ohPBaKgWNlQFrquKDkB/8B+P0VwavGiNP7Ub34y+J5CLNzGQPRbEzRJAnP0VCX3CWSqKsIrMfRGhqcpcRyuhzkDGNKV2sLoBDkyD0QzsN5J+aL2INIHU+laLG76NP5b2W9ukW2yO2RdYdZn1GDq9upzXTORhbJONDLpSsYRtjBkBw74Yq7p0NIGPkdbJxu5YfrJXlCvZfdD9/uPSGbjOdj1cAaWE94Mcu8I8NEP9YOcpfifi4pt3+t5KAsgBHK2GZbx5K7Jy8TPsLNsh2q/yhPMKU4FlyOY31XxdKfmltzO6aNodom9bYfWS9k7dijVB+H02dKyOuGOvkytk0oh5rGXOcyJCc7+N722rUgaDUOX2DFD3IK+sxlHVEB2H4v33AZQ4+PIJe1p7qxBsRQqzE9Q3PKiLN4lurXV6u+oUKi0nEIUSqtKzyUMI=
