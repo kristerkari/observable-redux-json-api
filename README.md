@@ -5,15 +5,15 @@
 [![Build Status](https://travis-ci.org/kristerkari/observable-redux-json-api.svg?branch=master)](https://travis-ci.org/kristerkari/observable-redux-json-api)
 [![Build status](https://ci.appveyor.com/api/projects/status/39y7dxu90yive4vb/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/observable-redux-json-api/branch/master)
 
+This library is intended for use in web applications build on Redux, which consumes data from a [JSON API](http://jsonapi.org/).
+
+Use _observable-redux-json-api_ to have one simple way of storing resource objects in Redux state along with it's CRUD API, which provides easy ways to create, read, update and delete resources.
+
 **observable-redux-json-api** is a library based on [redux-json-api](https://github.com/stonecircle/redux-json-api) (big thanks to them).
 
 The main difference is that instead of [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) it uses [RxJS Observables](http://reactivex.io/rxjs/) for all its [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) methods.
 
 Observables give you better control of the network requests compared to promises. You can for example easily cancel or retry the requests using RxJS.
-
-This library is intended for use in web applications build on Redux, which consumes data from a [JSON API](http://jsonapi.org/).
-
-Use _observable-redux-json-api_ to have one simple way of storing resource objects in Redux state along with it's CRUD API, which provides easy ways to create, read, update and delete resources.
 
 ## Why should you use observable-redux-json-api instead of redux-json-api?
 
