@@ -18,7 +18,7 @@ Observables give you better control of the network requests compared to promises
 ## Why should you use observable-redux-json-api instead of redux-json-api?
 
 - Compatible with [Typescript](https://www.typescriptlang.org/) (includes type definitions).
-- No need to add polyfills for browsers that do not support ES6.
+- ECMAScript 5 compatible, no need to add polyfills for browsers that do not support ECMAScript 6.
 - You can easily cancel or retry requests using RxJS.
 - Compatible with [redux-observable](https://redux-observable.js.org/).
 
