@@ -10,6 +10,14 @@ Getting `observable-redux-json-api` set up requires __4 steps__ which we will co
 
 ## Install through npm or yarn
 
+Before installing, make sure that you have these dependencies installed in your project:
+
+- redux
+- redux-thunk
+- rxjs
+
+After that you can install the library:
+
 npm:
 
 `npm install observable-redux-json-api --save`
