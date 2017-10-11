@@ -7,7 +7,7 @@
 
 This library is intended for use in web applications build on Redux, which consumes data from a [JSON API](http://jsonapi.org/).
 
-Use _observable-redux-json-api_ to have one simple way of storing resource objects in Redux state along with it's CRUD API, which provides easy ways to create, read, update and delete resources.
+Use **observable-redux-json-api** to have one simple way of storing resource objects in Redux state along with it's CRUD API, which provides easy ways to create, read, update and delete resources.
 
 **observable-redux-json-api** is a library based on [redux-json-api](https://github.com/stonecircle/redux-json-api) (big thanks to them).
 
