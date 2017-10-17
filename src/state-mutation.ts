@@ -1,4 +1,4 @@
-const imm = require("object-path-immutable");
+import * as imm from "object-path-immutable";
 import * as pluralize from "pluralize";
 import { hasOwnProperties } from "./utils";
 const equal = require("deep-equal");

@@ -1,5 +1,5 @@
+import * as imm from "object-path-immutable";
 import { createAction, handleActions } from "redux-actions";
-const imm = require("object-path-immutable");
 import actionTypes from "./constants";
 import { Observable } from "./rxjs-imports";
 import {
