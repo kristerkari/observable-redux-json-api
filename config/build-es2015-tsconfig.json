@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "allowJs": true,
+    "outDir": "../es",
+    "baseUrl": "..",
+    "allowJs": false,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "lib": ["dom", "es2015"],
-    "target": "es2015",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "es2015",
     "moduleResolution": "node",
     "noEmit": false,
     "noEmitHelpers": true,
@@ -23,6 +24,6 @@
     "sourceMap": true,
     "strictNullChecks": true
   },
-  "include": ["**/*"],
+  "include": ["../src"],
   "exclude": ["node_modules"]
 }

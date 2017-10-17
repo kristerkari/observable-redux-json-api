@@ -18,6 +18,7 @@ node_modules
 # Vim
 *.sw*
 
+es
 lib
 .DS_Store
 .nvmrc

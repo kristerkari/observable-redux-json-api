@@ -2,18 +2,21 @@
   "name": "observable-redux-json-api",
   "version": "0.0.2",
   "main": "lib/jsonapi.js",
+  "module": "es/jsonapi.js",
+  "jsnext:main": "es/jsonapi.js",
   "types": "index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Krister Kari",
     "url": "https://github.com/kristerkari/"
   },
-  "files": ["docs", "lib", "src", "README.md", "index.d.ts"],
+  "files": ["es", "docs", "lib", "src", "README.md", "index.d.ts"],
   "keywords": ["observable", "redux", "json", "api", "jsonapi"],
   "scripts": {
     "prerelease": "yarn build",
     "release": "npmpub",
-    "build": "rimraf lib && tsc --project config/build-tsconfig.json",
+    "build":
+      "rimraf lib && rimraf es && tsc --project config/build-es5-tsconfig.json && tsc --project config/build-es2015-tsconfig.json && node config/replace-lodash-es.js",
     "tdd": "jest --watch",
     "test": "jest",
     "test:nocache": "jest --no-cache",
@@ -23,22 +26,24 @@
   },
   "devDependencies": {
     "@types/deep-equal": "^1.0.1",
-    "@types/jest": "^21.1.1",
-    "@types/node": "^8.0.31",
+    "@types/jest": "^21.1.3",
+    "@types/node": "^8.0.41",
     "@types/pluralize": "^0.0.27",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
+    "jest-cli": "^21.2.1",
     "lint-staged": "^4.2.3",
     "nock": "^9.0.22",
     "npmpub": "^3.1.0",
     "prettier": "^1.7.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "replace-in-file": "^3.0.0-beta.2",
     "rimraf": "^2.6.2",
     "rxjs": "^5.4.3",
     "rxjs-tslint-rules": "^3.0.3",
-    "ts-jest": "^21.0.1",
-    "tslib": "^1.7.1",
+    "ts-jest": "^21.1.2",
+    "tslib": "^1.8.0",
     "tslint": "^5.7.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.5.3",
@@ -47,6 +52,7 @@
   "dependencies": {
     "deep-equal": "^1.0.1",
     "lodash": "^4.17.4",
+    "lodash-es": "^4.2.1",
     "object-path-immutable": "^0.5.2",
     "pluralize": "^7.0.0",
     "redux-actions": "^2.2.1"
@@ -68,8 +74,9 @@
     "automock": false,
     "moduleFileExtensions": ["ts", "js"],
     "transform": {
-      ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.(j|t)sx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/.*)"],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
     "notify": false,
     "verbose": true,
