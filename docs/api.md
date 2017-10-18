@@ -1,7 +1,7 @@
 API
 ---
 
-_redux-json-api_ provides a simple API for all four CRUD actions.
+_observable-redux-json-api_ provides a simple API for all four CRUD actions.
 
 - Create resource object using [createResource](#createresource-resource-object--function)
 - Read endpoints through [readEndpoint](#readendpoint-endpoint-string--function)
@@ -15,7 +15,7 @@ Whenever there's referred to a resource object or entity, it must conform to [JS
 
 ## Resource endpoints
 
-_redux-json-api_ resolves resource objects to endpoints based on their specified type. The following resource will update and delete to _/tasks/1_:
+_observable-redux-json-api_ resolves resource objects to endpoints based on their specified type. The following resource will update and delete to _/tasks/1_:
 
 ```json
 {
@@ -40,7 +40,7 @@ While dispatching a create action for the following resource will make a request
 
 
 ## API Observables
-The _redux-json-api_'s CRUD API methods will all return a single `Observable`. The subsribe handler will receive one argument with the response body. One exception to this is the  subsribe handler from a `deleteResource` Observable, which will not receive any arguments.
+The _observable-redux-json-api_'s CRUD API methods will all return a single `Observable`. The subsribe handler will receive one argument with the response body. One exception to this is the  subsribe handler from a `deleteResource` Observable, which will not receive any arguments.
 
 
 ## API Methods
