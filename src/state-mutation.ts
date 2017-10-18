@@ -2,6 +2,7 @@ import * as imm from "object-path-immutable";
 import * as pluralize from "pluralize";
 import { hasOwnProperties } from "./utils";
 const equal = require("deep-equal");
+import assign from "lodash-es/assign";
 import find from "lodash-es/find";
 import findIndex from "lodash-es/findIndex";
 
@@ -116,14 +117,17 @@ export const updateOrInsertResource = (state, resource) => {
     const resources = state[resource.type].data;
     const idx = findIndex(resources, item => item.id === resource.id);
 
-    const relationships = {};
-    for (const relationship in resource.relationships) {
-      if (!resource.relationships[relationship].data) {
-        relationships[relationship] =
-          resources[idx].relationships[relationship];
+    if (resource.relationships) {
+      const relationships = {};
+      for (const relationship in resource.relationships) {
+        if (!resource.relationships[relationship].data) {
+          relationships[relationship] =
+            resources[idx].relationships[relationship];
+        }
       }
+
+      assign(resource.relationships, relationships);
     }
-    Object.assign(resource.relationships, relationships);
 
     if (!equal(resources[idx], resource)) {
       newState = imm.set(newState, updatePath.concat(idx), resource);

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Updating resources should update a resource without relationships 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "attributes": Object {
+        "name": "John Doe",
+      },
+      "id": "1",
+      "relationships": Object {
+        "companies": Object {
+          "data": null,
+        },
+      },
+      "type": "users",
+    },
+    Object {
+      "attributes": Object {
+        "name": "Jane Doe",
+      },
+      "id": "2",
+      "type": "users",
+    },
+  ],
+}
+`;

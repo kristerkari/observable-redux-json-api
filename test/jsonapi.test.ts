@@ -523,6 +523,24 @@ describe("Updating resources", () => {
     expect(updatedState.users.data[1].attributes.name).toEqual("Jane Doe");
   });
 
+  it("should update a resource without relationships", () => {
+    const updatedState = reducer(
+      state,
+      apiUpdated({
+        data: [
+          {
+            type: "users",
+            id: "2",
+            attributes: {
+              name: "Jane Doe"
+            }
+          }
+        ]
+      })
+    );
+    expect(updatedState.users).toMatchSnapshot();
+  });
+
   it("should persist in state and preserve order", () => {
     const updatedState = reducer(state, apiUpdated(updatedUser));
     expect(state.users.data[0].attributes.name).not.toEqual(
