@@ -16,6 +16,7 @@ const {
   API_SET_ENDPOINT_PATH,
   API_SET_HEADERS,
   API_SET_HEADER,
+  API_HYDRATE,
   API_WILL_CREATE,
   API_CREATED,
   API_CREATE_FAILED,
@@ -39,6 +40,8 @@ export const setEndpointHost = createAction(API_SET_ENDPOINT_HOST);
 export const setEndpointPath = createAction(API_SET_ENDPOINT_PATH);
 export const setHeaders = createAction(API_SET_HEADERS);
 export const setHeader = createAction(API_SET_HEADER);
+
+export const hydrateStore = createAction(API_HYDRATE);
 
 const apiWillCreate = createAction(API_WILL_CREATE);
 const apiCreated = createAction(API_CREATED);
@@ -217,6 +220,19 @@ export const reducer = handleActions(
       return imm(state)
         .set(["endpoint", "path"], path)
         .value();
+    },
+
+    [API_HYDRATE]: (state, { payload: resources }) => {
+      const entities = Array.isArray(resources.data)
+        ? resources.data
+        : [resources.data];
+
+      const newState = updateOrInsertResourcesIntoState(
+        state,
+        entities.concat(resources.included || [])
+      );
+
+      return imm(newState).value();
     },
 
     [API_WILL_CREATE]: state => {

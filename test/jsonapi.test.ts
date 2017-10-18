@@ -5,6 +5,7 @@ import noop from "lodash-es/noop";
 import * as nock from "nock";
 import { createAction } from "redux-actions";
 import {
+  hydrateStore,
   IS_DELETING,
   IS_UPDATING,
   reducer,
@@ -395,6 +396,29 @@ const responseDataWithOneToManyRelationship = {
 
 const payloadWithNonMatchingReverseRelationships = require("./payloads/withNonMatchingReverseRelationships.json");
 
+describe("Hydration of store", () => {
+  it("should automatically organize new resource in new key on state", () => {
+    const updatedState = reducer(state, hydrateStore(taskWithoutRelationship));
+    expect(typeof updatedState.tasks).toBe("object");
+  });
+
+  it("should add reverse relationship when inserting new resource", () => {
+    const updatedState = reducer(state, hydrateStore(taskWithTransaction));
+
+    const {
+      data: taskRelationship
+    } = updatedState.transactions.data[0].relationships.task;
+
+    expect(taskRelationship.type).toEqual(taskWithTransaction.data.type);
+    expect(taskRelationship.id).toEqual(taskWithTransaction.data.id);
+  });
+
+  it("should handle multiple resources", () => {
+    const updatedState = reducer(state, hydrateStore(multipleResources));
+    expect(typeof updatedState.tasks).toBe("object");
+  });
+});
+
 describe("Creation of new resources", () => {
   it("should automatically organize new resource in new key on state", () => {
     const updatedState = reducer(state, apiCreated(taskWithoutRelationship));
@@ -476,6 +500,29 @@ describe("Reading resources", () => {
 const zip = rows => rows[0].map((_, c) => rows.map(row => row[c]));
 
 describe("Updating resources", () => {
+  it("should update a resource", () => {
+    const updatedState = reducer(
+      state,
+      apiUpdated({
+        data: [
+          {
+            type: "users",
+            id: "2",
+            attributes: {
+              name: "Jane Doe"
+            },
+            relationships: {
+              companies: {
+                data: null
+              }
+            }
+          }
+        ]
+      })
+    );
+    expect(updatedState.users.data[1].attributes.name).toEqual("Jane Doe");
+  });
+
   it("should persist in state and preserve order", () => {
     const updatedState = reducer(state, apiUpdated(updatedUser));
     expect(state.users.data[0].attributes.name).not.toEqual(
@@ -524,14 +571,19 @@ describe("Delete resources", () => {
     expect(relationship).toEqual(null);
   });
 
-  xdescribe("when one-to-many relationship", () => {
+  describe("when one-to-many relationship", () => {
     it("should update reverse relationship for transaction", () => {
       // Add task with transactions to state
-      const stateWithTask = reducer(state, apiCreated(taskWithTransactions));
+      const stateWithTask = reducer(
+        state,
+        apiCreated({ data: taskWithTransactions })
+      );
+      expect(stateWithTask.tasks).toEqual({ data: [taskWithTransactions] });
+
       // Update relation between transaction and task
       const stateWithTaskWithTransaction = reducer(
         stateWithTask,
-        apiUpdated(transactionWithTask)
+        apiUpdated({ data: transactionWithTask })
       );
 
       expect(
@@ -541,7 +593,7 @@ describe("Delete resources", () => {
 
       const stateWithoutTask = reducer(
         stateWithTask,
-        apiDeleted(taskWithTransaction)
+        apiDeleted(taskWithTransactions)
       );
       const {
         data: relationship
@@ -551,12 +603,15 @@ describe("Delete resources", () => {
 
     it("should update reverse relationship for task", () => {
       // Add task with transactions to state
-      const stateWithTask = reducer(state, apiCreated(taskWithTransactions));
+      const stateWithTask = reducer(
+        state,
+        apiCreated({ data: taskWithTransactions })
+      );
       // Update relation between transaction and task
       // TODO: check relationshiphs on create resource
       const stateWithTaskWithTransaction = reducer(
         stateWithTask,
-        apiUpdated(transactionWithTask)
+        apiUpdated({ data: transactionWithTask })
       );
 
       expect(stateWithTaskWithTransaction.transactions.data[0].id).toEqual(
@@ -716,6 +771,80 @@ describe("apiRequest", () => {
       expect(err.message).toEqual("ajax error 500");
       expect(err.status).toEqual(500);
       done();
+    });
+  });
+});
+
+const request1 = {
+  data: [
+    {
+      type: "articles",
+      id: "1",
+      attributes: {
+        title: "JSON API paints my bikeshed!",
+        body: "The shortest article. Ever.",
+        created: "2015-05-22T14:56:29.000Z",
+        updated: "2015-05-22T14:56:28.000Z"
+      },
+      relationships: {
+        author: {
+          data: {
+            id: "42",
+            type: "people"
+          }
+        }
+      }
+    }
+  ],
+  included: [
+    {
+      type: "people",
+      id: "42",
+      attributes: {
+        name: "John",
+        age: 80,
+        gender: "male"
+      },
+      relationships: {
+        articles: {},
+        comments: {}
+      }
+    }
+  ]
+};
+
+const request2 = {
+  data: [
+    {
+      type: "articles",
+      id: "1",
+      attributes: {
+        title: "JSON API paints my bikeshed!",
+        body: "The shortest article. Ever.",
+        created: "2015-05-22T14:56:29.000Z",
+        updated: "2015-05-22T14:56:28.000Z"
+      },
+      relationships: {
+        author: {}
+      }
+    }
+  ]
+};
+
+describe("Relationships without data key should not be reset", () => {
+  it("should append read resources to state", () => {
+    const updatedState = reducer(state, apiRead(request1));
+    expect(typeof updatedState.articles).toBe("object");
+    expect(updatedState.articles.data.length).toEqual(1);
+    expect(updatedState.articles.data[0].relationships.author).toEqual({
+      data: { id: "42", type: "people" }
+    });
+
+    const updatedState2 = reducer(updatedState, apiRead(request2));
+    expect(typeof updatedState2.articles).toBe("object");
+    expect(updatedState2.articles.data.length).toEqual(1);
+    expect(updatedState2.articles.data[0].relationships.author).toEqual({
+      data: { id: "42", type: "people" }
     });
   });
 });
