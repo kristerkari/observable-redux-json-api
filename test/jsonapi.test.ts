@@ -756,7 +756,11 @@ describe("apiRequest", () => {
 
     nock("http://foo.com")
       .get("/fakeurl")
-      .reply(404, "not found", { "Content-Type": "application/json" });
+      .reply(
+        404,
+        { error: "not found" },
+        { "Content-Type": "application/json" }
+      );
 
     apiRequest("http://foo.com/fakeurl").subscribe(noop, err => {
       expect(err.message).toEqual("ajax error 404");
