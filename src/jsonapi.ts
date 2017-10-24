@@ -1,4 +1,3 @@
-import * as imm from "object-path-immutable";
 import { createAction, handleActions } from "redux-actions";
 import actionTypes from "./constants";
 import { Observable } from "./rxjs-imports";
@@ -10,6 +9,7 @@ import {
   updateOrInsertResourcesIntoState
 } from "./state-mutation";
 import { apiRequest } from "./utils";
+const imm = require("object-path-immutable");
 
 const {
   API_SET_ENDPOINT_HOST,
