@@ -1,10 +1,8 @@
+import { assign, find, findIndex } from "lodash-es";
 import * as imm from "object-path-immutable";
 import * as pluralize from "pluralize";
 import { hasOwnProperties } from "./utils";
 const equal = require("deep-equal");
-import assign from "lodash-es/assign";
-import find from "lodash-es/find";
-import findIndex from "lodash-es/findIndex";
 
 export const makeUpdateReverseRelationship = (
   resource,

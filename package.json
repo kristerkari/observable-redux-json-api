@@ -15,8 +15,11 @@
   "scripts": {
     "prerelease": "yarn build",
     "release": "npmpub",
-    "build":
-      "rimraf lib && rimraf es && tsc --project config/build-es5-tsconfig.json && tsc --project config/build-es2015-tsconfig.json && node config/replace-lodash-es.js",
+    "build:es5":
+      "rimraf lib && tsc --project config/build-tsconfig.json --outDir lib && BABEL_ENV=es5 babel lib --out-dir lib",
+    "build:es2015":
+      "rimraf es && tsc --project config/build-tsconfig.json --outDir es && BABEL_ENV=es2015 babel es --out-dir es",
+    "build": "yarn build:es5 && yarn build:es2015",
     "tdd": "jest --watch",
     "test": "jest",
     "test:nocache": "jest --no-cache",
@@ -29,6 +32,10 @@
     "@types/jest": "^21.1.3",
     "@types/node": "^8.0.41",
     "@types/pluralize": "^0.0.28",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-rename-import": "^2.1.1",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
@@ -69,6 +76,26 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "babel": {
+    "env": {
+      "es5": {
+        "plugins": [
+          "lodash",
+          [
+            "transform-rename-import",
+            {
+              "original": "lodash-es",
+              "replacement": "lodash"
+            }
+          ],
+          "transform-es2015-modules-commonjs"
+        ]
+      },
+      "es2015": {
+        "plugins": ["lodash"]
+      }
+    }
   },
   "jest": {
     "automock": false,
