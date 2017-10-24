@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "../es",
     "baseUrl": "..",
     "allowJs": false,
     "declaration": false,
