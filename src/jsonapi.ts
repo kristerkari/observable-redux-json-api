@@ -34,7 +34,7 @@ const {
 } = actionTypes;
 
 // Export __assign for unit tests
-export const assign = __assign;
+export { __assign };
 
 // Resource isInvalidating values
 export const IS_DELETING = "IS_DELETING";
