@@ -5,6 +5,7 @@ import noop from "lodash-es/noop";
 import * as nock from "nock";
 import { createAction } from "redux-actions";
 import {
+  assign,
   hydrateStore,
   IS_DELETING,
   IS_UPDATING,
@@ -868,5 +869,20 @@ describe("Relationships without data key should not be reset", () => {
     expect(updatedState2.articles.data[0].relationships.author).toEqual({
       data: { id: "42", type: "people" }
     });
+  });
+});
+
+describe("Typescript helper __assign", () => {
+  it("should have assign function defined in jsonapi file", () => {
+    expect(typeof assign).toBe("function");
+  });
+
+  it("should clone objects", () => {
+    const o1 = { a: 1 };
+    const o2 = { b: 2 };
+    const o3 = { c: 3 };
+    expect(assign({}, { a: 1 })).toEqual({ a: 1 });
+    expect(assign(o1, o2, o3)).toEqual({ a: 1, b: 2, c: 3 });
+    expect(assign(o1)).toEqual({ a: 1, b: 2, c: 3 });
   });
 });
