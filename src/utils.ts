@@ -1,3 +1,5 @@
+import { __assign } from "./assign"; // tslint:disable-line
+
 import { AjaxResponse, Observable } from "./rxjs-imports";
 
 export const jsonContentTypes = [
