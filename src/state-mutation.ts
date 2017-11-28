@@ -1,5 +1,8 @@
-import { assign, find, findIndex } from "lodash-es";
+import { __assign } from "./assign";
+
+import { find, findIndex } from "lodash-es";
 import { hasOwnProperties } from "./utils";
+
 const equal = require("deep-equal");
 const imm = require("object-path-immutable");
 const pluralize = require("pluralize");
@@ -124,7 +127,7 @@ export const updateOrInsertResource = (state, resource) => {
         }
       }
 
-      assign(resource.relationships, relationships);
+      __assign(resource.relationships, relationships);
     }
 
     if (!equal(resources[idx], resource)) {
