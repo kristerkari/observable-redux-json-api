@@ -34,7 +34,7 @@ const {
   API_DELETE_FAILED
 } = actionTypes;
 
-export { __assign }; // workaround for TS not removing __assign import as unused
+export { __assign }; // workaround to stop TS removing __assign import as unused
 
 // Resource isInvalidating values
 export const IS_DELETING = "IS_DELETING";

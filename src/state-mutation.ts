@@ -7,7 +7,7 @@ const equal = require("deep-equal");
 const imm = require("object-path-immutable");
 const pluralize = require("pluralize");
 
-export { __assign }; // workaround for TS not removing __assign import as unused
+export { __assign }; // workaround to stop TS removing __assign import as unused
 
 export const makeUpdateReverseRelationship = (
   resource,
