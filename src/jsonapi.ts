@@ -1,3 +1,5 @@
+import { __assign } from "./assign";
+
 import { createAction, handleActions } from "redux-actions";
 import actionTypes from "./constants";
 import { Observable } from "./rxjs-imports";
@@ -30,6 +32,9 @@ const {
   API_DELETED,
   API_DELETE_FAILED
 } = actionTypes;
+
+// Export __assign for unit tests
+export { __assign };
 
 // Resource isInvalidating values
 export const IS_DELETING = "IS_DELETING";
