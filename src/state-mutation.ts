@@ -1,4 +1,4 @@
-import { __assign } from "./assign";
+import { __assign } from "./assign"; // tslint:disable-line
 
 import { find, findIndex } from "lodash-es";
 import { hasOwnProperties } from "./utils";

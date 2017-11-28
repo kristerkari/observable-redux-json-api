@@ -1,4 +1,4 @@
-import { __assign } from "./assign";
+import { __assign } from "./assign"; // tslint:disable-line
 
 import { createAction, handleActions } from "redux-actions";
 import actionTypes from "./constants";
