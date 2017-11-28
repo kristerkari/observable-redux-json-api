@@ -1,4 +1,4 @@
-import { __assign } from "./assign"; // tslint:disable-line
+import { __assign } from "./assign";
 
 import { find, findIndex } from "lodash-es";
 import { hasOwnProperties } from "./utils";
@@ -6,6 +6,8 @@ import { hasOwnProperties } from "./utils";
 const equal = require("deep-equal");
 const imm = require("object-path-immutable");
 const pluralize = require("pluralize");
+
+export { __assign }; // workaround to stop TS removing __assign import as unused
 
 export const makeUpdateReverseRelationship = (
   resource,
