@@ -1,4 +1,4 @@
-import { __assign } from "./assign"; // tslint:disable-line
+import { __assign } from "./assign";
 
 import { createAction, handleActions } from "redux-actions";
 import actionTypes from "./constants";
@@ -34,8 +34,7 @@ const {
   API_DELETE_FAILED
 } = actionTypes;
 
-// Export __assign for unit tests
-export { __assign };
+export { __assign }; // workaround for TS not removing __assign import as unused
 
 // Resource isInvalidating values
 export const IS_DELETING = "IS_DELETING";
