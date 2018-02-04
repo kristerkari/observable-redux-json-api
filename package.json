@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/deep-equal": "^1.0.1",
     "@types/jest": "^21.1.6",
-    "@types/node": "^8.0.53",
+    "@types/node": "^9.3.0",
     "@types/pluralize": "^0.0.28",
     "babel-cli": "^6.26.0",
     "babel-plugin-lodash": "^3.3.2",
