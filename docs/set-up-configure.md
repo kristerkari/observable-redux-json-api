@@ -1,7 +1,6 @@
-Set-Up & Configure
-------------------
+## Set-Up & Configure
 
-Getting `observable-redux-json-api` set up requires __4 steps__ which we will cover here.
+Getting `observable-redux-json-api` set up requires **4 steps** which we will cover here.
 
 1. Install through npm
 1. Add `observable-redux-json-api` reducer to _api_ namespace
@@ -12,9 +11,9 @@ Getting `observable-redux-json-api` set up requires __4 steps__ which we will co
 
 Before installing, make sure that you have these dependencies installed in your project:
 
-- redux
-- redux-thunk
-- rxjs
+* redux
+* redux-thunk
+* rxjs
 
 After that you can install the library:
 
@@ -26,7 +25,6 @@ yarn:
 
 `yarn add observable-redux-json-api --save`
 
-
 ## Add reducer to _api_ namespace
 
 The current version of `observable-redux-json-api` assumes that it's reducer reduced on to your root reducer under the namespace _api_.
@@ -35,8 +33,8 @@ You can achieve this by using [combineReducers](http://redux.js.org/docs/api/com
 
 ```js
 // rootReducer.js
-import { combineReducers } from 'redux';
-import { reducer as api } from 'observable-redux-json-api';
+import { combineReducers } from "redux";
+import { reducer as api } from "observable-redux-json-api";
 
 export default combineReducers({
   api
@@ -69,7 +67,7 @@ To change any of the defaults, the appropriate `set` methods should be dispatche
 Dispatch the returned action to set endpoint hostname. It requires one argument, which is a full hostname including protocol.
 
 ```js
-dispatch(setEndpointHost('https://api.my-server'));
+dispatch(setEndpointHost("https://api.my-server"));
 ```
 
 #### `setEndpointPath( rootPath: string ): object`
@@ -77,14 +75,14 @@ dispatch(setEndpointHost('https://api.my-server'));
 Dispatch the returned action to configure endpoint root path. It requires one argument.
 
 ```js
-dispatch(setEndpointPath('/v1'));
+dispatch(setEndpointPath("/v1"));
 ```
 
 Host and path will be concatenated without any validation. Be aware of missing slashes. This will cause an error, due to a missing forward slash:
 
 ```js
-dispatch(setEndpointHost('https://api.my-server'));
-dispatch(setEndpointPath('v1'));
+dispatch(setEndpointHost("https://api.my-server"));
+dispatch(setEndpointPath("v1"));
 // => https://api.my-serverv1
 ```
 
@@ -102,12 +100,14 @@ The singular 'setHeader' action will merge in the given header(s).
 #### `setHeaders( headers: object ): object`
 
 Dispatch this action to completely reset the headers, removing all defaults.
-The equivalent of ```dispatch(setAccessToken('myToken123'))``` is:
+The equivalent of `dispatch(setAccessToken('myToken123'))` is:
 
 ```js
-dispatch(setHeaders({
-  Authorization: `Bearer myToken123`,
-  'Content-Type': 'application/vnd.api+json',
-  Accept: 'application/vnd.api+json'
-}));
+dispatch(
+  setHeaders({
+    Authorization: `Bearer myToken123`,
+    "Content-Type": "application/vnd.api+json",
+    Accept: "application/vnd.api+json"
+  })
+);
 ```

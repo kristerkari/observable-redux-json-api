@@ -21,12 +21,10 @@ The following resource object will resolve to "/tasks/1":
 ### Example
 
 ```js
-import { connect } from 'react-redux';
-import { updateResource } from 'redux-json-api'
+import { connect } from "react-redux";
+import { updateResource } from "redux-json-api";
 
-const mapStateToProps = ({
-  api: { tasks = { data: [] } }
-}, { taskId }) => ({
+const mapStateToProps = ({ api: { tasks = { data: [] } } }, { taskId }) => ({
   task: tasks.data.find(task.id === taskId)
 });
 class UpdateTask extends Component {
@@ -44,7 +42,7 @@ class UpdateTask extends Component {
   }
 
   render() {
-    return <button onClick={this.completeTask.bind(this)} />
+    return <button onClick={this.completeTask.bind(this)} />;
   }
 }
 

@@ -70,7 +70,7 @@
     "rxjs": ">=5.0.0"
   },
   "lint-staged": {
-    "**/*.json": ["prettier --write", "git add"],
+    "**/*.{json,md}": ["prettier --write", "git add"],
     "**/*.ts": [
       "tslint --project tsconfig.json --config tslint-prettify.json --type-check --fix",
       "prettier --write",

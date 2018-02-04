@@ -20,26 +20,26 @@ This resource object will resolve to "/tasks":
 ### Example
 
 ```js
-import { connect } from 'react-redux';
-import { createResource } from 'observable-redux-json-api'
+import { connect } from "react-redux";
+import { createResource } from "observable-redux-json-api";
 
 class CreateTask extends Component {
   handleSubmit() {
     const { dispatch } = this.props;
     const entity = {
-      type: 'tasks',
+      type: "tasks",
       attributes: {
-        task: 'New task name'
+        task: "New task name"
       },
       relationships: {
         taskList: {
           data: {
-            id: '1',
-            type: 'taskLists'
+            id: "1",
+            type: "taskLists"
           }
         }
       }
-    }
+    };
 
     dispatch(createResource(entity));
   }

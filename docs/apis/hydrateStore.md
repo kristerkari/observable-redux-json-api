@@ -10,33 +10,35 @@ store.
 ### Example
 
 ```js
-import { createStore, combineReducers } from 'redux';
-import { reducer as api, hydrateStore } from 'react-redux';
+import { createStore, combineReducers } from "redux";
+import { reducer as api, hydrateStore } from "react-redux";
 
-const store = createStore(
-  combineReducers(api)
-);
+const store = createStore(combineReducers(api));
 
 const jsonBlob = {
-  "data": [{
-    "type": "tasks",
-    "id": "1",
-    "attributes": {
-      "task": "Deliver presents"
-    },
-    "relationships": {
-      "author": {
-        "data": { "type": "users", "id": "1" }
+  data: [
+    {
+      type: "tasks",
+      id: "1",
+      attributes: {
+        task: "Deliver presents"
+      },
+      relationships: {
+        author: {
+          data: { type: "users", id: "1" }
+        }
       }
     }
-  }],
-  "included": [{
-    "type": "users",
-    "id": "1",
-    "attributes": {
-      "username": "santa"
+  ],
+  included: [
+    {
+      type: "users",
+      id: "1",
+      attributes: {
+        username: "santa"
+      }
     }
-  }]
+  ]
 };
 
 store.dispatch(hydrateStore(jsonBlob));

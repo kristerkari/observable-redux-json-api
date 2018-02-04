@@ -11,25 +11,18 @@ A dispatch of `readEndpoint('tasks?include=createe')`, where root path/endpoint 
 ### Example
 
 ```js
-import { connect } from 'react-redux';
-import { readEndpoint } from 'redux-json-api';
+import { connect } from "react-redux";
+import { readEndpoint } from "redux-json-api";
 
 const mapStateToProps = ({ api: { tasks = { data: [] } } }) => ({ tasks });
 class Tasks extends Component {
   componentWillMount() {
-    this.props.dispatch(readEndpoint('tasks?include=assignee'));
+    this.props.dispatch(readEndpoint("tasks?include=assignee"));
   }
 
   render() {
-    return (
-      <ul>
-        {this.props.tasks.data.map(task => (
-          <li>{task.title}</li>
-        ))}
-      </ul>
-    )
+    return <ul>{this.props.tasks.data.map(task => <li>{task.title}</li>)}</ul>;
   }
-
 }
 
 export default connect(mapStateToProps)(Tasks);

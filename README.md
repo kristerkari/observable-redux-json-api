@@ -23,5 +23,6 @@ Observables give you better control of the network requests compared to promises
 ✓ Compatible with [redux-observable](https://redux-observable.js.org/).<br />
 
 # Table of contents
+
 1. [Set-Up & Configure](docs/set-up-configure.md)
 1. [API](docs/api.md)
