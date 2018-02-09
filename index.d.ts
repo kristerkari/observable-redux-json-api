@@ -5,6 +5,7 @@ declare module "observable-redux-json-api" {
   function readEndpoint(endpoint: Path): ThunkAction<any, any, any>;
   function updateResource(resource: object): ThunkAction<any, any, any>;
   function deleteResource(resource: object): ThunkAction<any, any, any>;
+  function hydrateStore(resource: object): ThunkAction<any, any, any>;
   function setAccessToken(token: Token): Action;
   function setEndpointHost(host: string): Action;
   function setEndpointPath(path: string): Action;
