@@ -20,6 +20,7 @@
     "build:es2015":
       "rimraf es && tsc --project config/build-tsconfig.json --outDir es && BABEL_ENV=es2015 babel es --out-dir es",
     "build": "yarn build:es5 && yarn build:es2015",
+    "tsc": "tsc --project tsconfig.json --noEmit",
     "tdd": "jest --watch",
     "test": "jest",
     "test:nocache": "jest --no-cache",
@@ -72,7 +73,7 @@
   "lint-staged": {
     "**/*.{json,md}": ["prettier --write", "git add"],
     "**/*.ts": [
-      "tslint --project tsconfig.json --config tslint-prettify.json --type-check --fix",
+      "tslint --project tsconfig.json --config tslint-prettify.json --fix",
       "prettier --write",
       "git add"
     ]
