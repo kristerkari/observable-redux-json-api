@@ -50,7 +50,7 @@
     "rimraf": "^2.6.2",
     "rxjs": "^5.5.6",
     "rxjs-tslint-rules": "^3.8.0",
-    "ts-jest": "^21.2.3",
+    "ts-jest": "^22.0.4",
     "tslib": "^1.9.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^4.1.1",
