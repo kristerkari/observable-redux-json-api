@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/kristerkari/observable-redux-json-api.svg?branch=master)](https://travis-ci.org/kristerkari/observable-redux-json-api)
 [![Build status](https://ci.appveyor.com/api/projects/status/39y7dxu90yive4vb/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/observable-redux-json-api/branch/master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
 This library is intended for use in web applications build on Redux, which consumes data from a [JSON API](http://jsonapi.org/).
 
