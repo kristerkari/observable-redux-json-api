@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/kristerkari/observable-redux-json-api.svg)](https://greenkeeper.io/)
 
+[![NPM version](https://img.shields.io/npm/v/observable-redux-json-api.svg)](https://www.npmjs.com/package/observable-redux-json-api)
 [![Build Status](https://travis-ci.org/kristerkari/observable-redux-json-api.svg?branch=master)](https://travis-ci.org/kristerkari/observable-redux-json-api)
 [![Build status](https://ci.appveyor.com/api/projects/status/39y7dxu90yive4vb/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/observable-redux-json-api/branch/master)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
@@ -25,5 +26,5 @@ Observables give you better control of the network requests compared to promises
 
 # Table of contents
 
-1. [Set-Up & Configure](docs/set-up-configure.md)
-1. [API](docs/api.md)
+1.  [Set-Up & Configure](docs/set-up-configure.md)
+1.  [API](docs/api.md)
