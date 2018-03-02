@@ -11,6 +11,9 @@ matrix:
   - node_js: '8'
     script: npm run lint
     env: CI=pretest
+  - node_js: '9'
+    script: npm test -- --runInBand
+    env: CI=tests 9
   - node_js: '8'
     script: npm test -- --runInBand
     env: CI=tests 8
