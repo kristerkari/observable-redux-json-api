@@ -30,38 +30,38 @@
   },
   "devDependencies": {
     "@types/deep-equal": "^1.0.1",
-    "@types/jest": "^21.1.6",
-    "@types/node": "^9.3.0",
+    "@types/jest": "^22.1.4",
+    "@types/node": "^9.4.6",
     "@types/pluralize": "^0.0.28",
     "babel-cli": "^6.26.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-rename-import": "^2.1.1",
     "husky": "^0.14.3",
-    "jest": "^21.2.1",
-    "jest-cli": "^21.2.1",
-    "lint-staged": "^6.0.0",
-    "nock": "^9.1.6",
+    "jest": "^22.4.2",
+    "jest-cli": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "nock": "^9.2.3",
     "npmpub": "^3.1.0",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "replace-in-file": "^3.1.0",
+    "replace-in-file": "^3.1.1",
     "rimraf": "^2.6.2",
     "rxjs": "^5.5.6",
-    "rxjs-tslint-rules": "^3.8.0",
-    "ts-jest": "^21.2.3",
+    "rxjs-tslint-rules": "^3.14.0",
+    "ts-jest": "^22.4.1",
     "tslib": "^1.9.0",
     "tslint": "^5.9.1",
-    "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.7.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^2.7.2",
     "xmlhttprequest": "^1.8.0"
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
-    "lodash": "^4.17.4",
-    "lodash-es": "^4.17.4",
-    "object-path-immutable": "^0.5.3",
+    "lodash": "^4.17.5",
+    "lodash-es": "^4.17.5",
+    "object-path-immutable": "^1.0.1",
     "pluralize": "^7.0.0",
     "redux-actions": "^2.2.1"
   },
@@ -110,7 +110,7 @@
     "verbose": true,
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
+        "tsConfigFile": "tsconfig.jest.json"
       }
     }
   }

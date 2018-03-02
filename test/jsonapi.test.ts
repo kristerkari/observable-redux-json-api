@@ -718,10 +718,13 @@ describe("apiRequest", () => {
       .get("/fakeurl")
       .reply(200, { data: 1 }, { "Content-Type": "application/json" });
 
-    apiRequest("http://foo.com/fakeurl").subscribe(data => {
-      expect(data).toEqual({ data: 1 });
-      done();
-    });
+    apiRequest("http://foo.com/fakeurl").subscribe(
+      data => {
+        expect(data).toEqual({ data: 1 });
+        done();
+      },
+      err => done(err)
+    );
   });
 
   it("should support vnd.api+json content-type", done => {
@@ -731,10 +734,13 @@ describe("apiRequest", () => {
       .get("/fakeurl")
       .reply(200, { data: 2 }, { "Content-Type": "application/vnd.api+json" });
 
-    apiRequest("http://foo.com/fakeurl").subscribe(data => {
-      expect(data).toEqual({ data: 2 });
-      done();
-    });
+    apiRequest("http://foo.com/fakeurl").subscribe(
+      data => {
+        expect(data).toEqual({ data: 2 });
+        done();
+      },
+      err => done(err)
+    );
   });
 
   it("should return response object when response is 204", done => {
@@ -744,11 +750,14 @@ describe("apiRequest", () => {
       .get("/fakeurl")
       .reply(204, null, { "Content-Type": "application/json" });
 
-    apiRequest("http://foo.com/fakeurl").subscribe(data => {
-      expect(data.response).toEqual(null);
-      expect(data.status).toEqual(204);
-      done();
-    });
+    apiRequest("http://foo.com/fakeurl").subscribe(
+      data => {
+        expect(data.response).toEqual(null);
+        expect(data.status).toEqual(204);
+        done();
+      },
+      err => done(err)
+    );
   });
 
   it("should return response object when response is 404", done => {
@@ -776,11 +785,14 @@ describe("apiRequest", () => {
       .get("/fakeurl")
       .reply(200, { data: "foo" }, { "Content-Type": "foo" });
 
-    apiRequest("http://foo.com/fakeurl").subscribe(data => {
-      expect(data.response).toEqual({ data: "foo" });
-      expect(data.status).toEqual(200);
-      done();
-    });
+    apiRequest("http://foo.com/fakeurl").subscribe(
+      data => {
+        expect(data.response).toEqual({ data: "foo" });
+        expect(data.status).toEqual(200);
+        done();
+      },
+      err => done(err)
+    );
   });
 
   it("should return error when response is 500", done => {
