@@ -28,3 +28,4 @@ Observables give you better control of the network requests compared to promises
 
 1.  [Set-Up & Configure](docs/set-up-configure.md)
 1.  [API](docs/api.md)
+1.  [Example app](https://github.com/kristerkari/observable-redux-json-api-example)
