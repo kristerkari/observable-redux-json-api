@@ -1,6 +1,6 @@
 # Observables + Redux + JSON API
 
-<a href="http://reactivex.io/rxjs/"><img src="images/rxjs-logo.png" width="150"></a><img src="images/plus.svg" width="100"><a href="https://redux.js.org/"><img src="images/redux-logo.svg" width="160"></a><img src="images/plus.svg" width="100"><a href="http://jsonapi.org/"><img src="images/jsonapi-logo.png" width="320"></a>
+<a href="http://reactivex.io/rxjs/"><img src="images/rxjs-logo.png" width="150"></a><img src="images/plus.svg" width="100"><a href="https://redux.js.org/"><img src="images/redux-logo.svg" width="160"></a><img src="images/plus.svg" width="100"><a href="http://jsonapi.org/"><img src="images/jsonapi-logo.png" width="360"></a>
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/kristerkari/observable-redux-json-api.svg)](https://greenkeeper.io/)
 
