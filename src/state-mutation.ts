@@ -1,7 +1,5 @@
 import { __assign } from "./assign";
-
-import { find, findIndex } from "lodash-es";
-import { hasOwnProperties } from "./utils";
+import { find, findIndex, hasOwnProperties } from "./utils";
 
 const equal = require("deep-equal");
 const imm = require("object-path-immutable");

@@ -1,7 +1,6 @@
 (global as any).__API_HOST__ = "example.com";
 (global as any).__API_ENDPOINT__ = "/api";
 
-import noop from "lodash-es/noop";
 import * as nock from "nock";
 import { createAction } from "redux-actions";
 import {
@@ -20,6 +19,8 @@ Object.defineProperty(global, "XMLHttpRequest", {
 });
 
 import { apiRequest } from "../src/utils";
+
+const noop = () => {}; // tslint:disable-line no-empty
 
 const apiCreated = createAction("API_CREATED");
 const apiRead = createAction("API_READ");
