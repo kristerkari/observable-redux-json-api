@@ -190,7 +190,7 @@ export const requireResource = (resourceType, endpoint = resourceType) => {
   return (dispatch, getState): Observable<any> => {
     const { api } = getState();
     if (api.hasOwnProperty(resourceType)) {
-      return Observable.of();
+      return Observable.empty();
     }
 
     return dispatch(readEndpoint(endpoint));
