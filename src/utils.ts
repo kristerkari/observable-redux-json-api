@@ -45,3 +45,26 @@ export const hasOwnProperties = (obj, propertyTree) => {
   }
   return false;
 };
+
+export function find(array: any, predicate: Function) {
+  for (let i = 0; i < array.length; i += 1) {
+    if (predicate(array[i], i, array)) {
+      return array[i];
+    }
+  }
+  return undefined;
+}
+
+export function findIndex(array: any, predicate: Function) {
+  if (array.length === 0) {
+    return -1;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (predicate(array[i], i, array)) {
+      return i;
+    }
+  }
+
+  return -1;
+}
