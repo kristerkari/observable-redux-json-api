@@ -1,5 +1,7 @@
 # Observables + Redux + JSON API
 
+<img src="images/rxjs-logo.png" width="150"><img src="images/plus.svg" width="100"><img src="images/redux-logo.svg" width="160"><img src="images/plus.svg" width="100"><img src="images/jsonapi-logo.png" width="320">
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/kristerkari/observable-redux-json-api.svg)](https://greenkeeper.io/)
 
 [![NPM version](https://img.shields.io/npm/v/observable-redux-json-api.svg)](https://www.npmjs.com/package/observable-redux-json-api)
