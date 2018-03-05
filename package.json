@@ -44,7 +44,6 @@
     "prettier": "^1.11.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "replace-in-file": "^3.1.1",
     "rimraf": "^2.6.2",
     "rxjs": "^5.5.6",
     "rxjs-tslint-rules": "^3.14.0",
