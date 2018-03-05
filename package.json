@@ -96,5 +96,14 @@
         "tsConfigFile": "tsconfig.jest.json"
       }
     }
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "bracketSpacing": true
   }
 }
