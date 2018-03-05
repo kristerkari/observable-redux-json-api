@@ -1,9 +1,9 @@
+import * as pluralize from "pluralize";
 import { __assign } from "./assign";
 import { find, findIndex, hasOwnProperties } from "./utils";
 
 const equal = require("deep-equal");
 const imm = require("object-path-immutable");
-const pluralize = require("pluralize");
 
 export { __assign }; // workaround to stop TS removing __assign import as unused
 
