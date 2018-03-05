@@ -10,7 +10,7 @@
     "name": "Krister Kari",
     "url": "https://github.com/kristerkari/"
   },
-  "files": ["es", "docs", "lib", "src", "README.md", "index.d.ts"],
+  "files": ["es", "docs", "images", "lib", "src", "README.md", "index.d.ts"],
   "keywords": ["observable", "redux", "json", "api", "jsonapi"],
   "scripts": {
     "prerelease": "yarn build",
