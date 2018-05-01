@@ -3451,9 +3451,9 @@ run-applescript@^2.0.0:
     pify "^2.2.0"
     pinkie-promise "^2.0.0"
 
-rxjs-tslint-rules@^3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-3.14.0.tgz#ba7dca949b56c75aa66ddc8827e3971b6b920e40"
+rxjs-tslint-rules@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.0.2.tgz#e513b7eff61d313f66d6c4c8362d4ddd0d95283c"
   dependencies:
     decamelize "^2.0.0"
     resolve "^1.4.0"
