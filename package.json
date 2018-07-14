@@ -32,7 +32,7 @@
     "@types/deep-equal": "^1.0.1",
     "@types/jest": "^22.1.4",
     "@types/node": "^9.4.6",
-    "@types/pluralize": "^0.0.28",
+    "@types/pluralize": "^0.0.29",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "husky": "^0.14.3",
