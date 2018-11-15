@@ -1,6 +1,5 @@
-import { __assign } from "./assign";
-
 import { createAction, handleActions } from "redux-actions";
+import { __assign } from "./assign";
 import actionTypes from "./constants";
 import { Observable } from "./rxjs-imports";
 import {
