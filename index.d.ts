@@ -1,11 +1,11 @@
 declare module "observable-redux-json-api" {
   import { Action } from "redux";
   import { ThunkAction } from "redux-thunk";
-  function createResource(resource: Resource): ThunkAction<any, any, any, any>;
-  function readEndpoint(endpoint: Path): ThunkAction<any, any, any, any>;
-  function updateResource(resource: object): ThunkAction<any, any, any, any>;
-  function deleteResource(resource: object): ThunkAction<any, any, any, any>;
-  function hydrateStore(resource: object): ThunkAction<any, any, any, any>;
+  function createResource<R, S, E>(resource: Resource): ThunkAction<R, S, E>;
+  function readEndpoint<R, S, E>(endpoint: Path): ThunkAction<R, S, E>;
+  function updateResource<R, S, E>(resource: object): ThunkAction<R, S, E>;
+  function deleteResource<R, S, E>(resource: object): ThunkAction<R, S, E>;
+  function hydrateStore<R, S, E>(resource: object): ThunkAction<R, S, E>;
   function setAccessToken(token: Token): Action;
   function setEndpointHost(host: string): Action;
   function setEndpointPath(path: string): Action;
