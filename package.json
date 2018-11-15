@@ -10,15 +10,27 @@
     "name": "Krister Kari",
     "url": "https://github.com/kristerkari/"
   },
-  "files": ["es", "docs", "images", "lib", "src", "README.md", "index.d.ts"],
-  "keywords": ["observable", "redux", "json", "api", "jsonapi"],
+  "files": [
+    "es",
+    "docs",
+    "images",
+    "lib",
+    "src",
+    "README.md",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "observable",
+    "redux",
+    "json",
+    "api",
+    "jsonapi"
+  ],
   "scripts": {
     "prerelease": "yarn build",
     "release": "npmpub",
-    "build:es5":
-      "rimraf lib && tsc --project config/build-tsconfig.json --outDir lib && BABEL_ENV=es5 babel lib --out-dir lib",
-    "build:es2015":
-      "rimraf es && tsc --project config/build-tsconfig.json --outDir es && BABEL_ENV=es2015 babel es --out-dir es",
+    "build:es5": "rimraf lib && tsc --project config/build-tsconfig.json --outDir lib && BABEL_ENV=es5 babel lib --out-dir lib",
+    "build:es2015": "rimraf es && tsc --project config/build-tsconfig.json --outDir es && BABEL_ENV=es2015 babel es --out-dir es",
     "build": "yarn build:es5 && yarn build:es2015",
     "tsc": "tsc --project tsconfig.json --noEmit",
     "tdd": "jest --watch",
@@ -30,35 +42,35 @@
   },
   "devDependencies": {
     "@types/deep-equal": "^1.0.1",
-    "@types/jest": "^22.1.4",
-    "@types/node": "^9.4.6",
-    "@types/pluralize": "^0.0.28",
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.8",
+    "@types/pluralize": "^0.0.29",
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "husky": "^0.14.3",
-    "jest": "^22.4.2",
-    "jest-cli": "^22.4.2",
-    "lint-staged": "^7.0.0",
-    "nock": "^9.2.3",
-    "npmpub": "^3.1.0",
-    "prettier": "^1.11.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "husky": "^1.1.4",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "lint-staged": "^8.0.4",
+    "nock": "^10.0.2",
+    "npmpub": "^4.1.0",
+    "prettier": "^1.15.2",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0",
     "rimraf": "^2.6.2",
-    "rxjs": "^5.5.6",
-    "rxjs-tslint-rules": "^4.0.2",
-    "ts-jest": "^22.4.1",
-    "tslib": "^1.9.0",
-    "tslint": "^5.9.1",
-    "tslint-eslint-rules": "^5.1.0",
-    "typescript": "^2.7.2",
+    "rxjs": "5.5.12",
+    "rxjs-tslint-rules": "^4.11.0",
+    "ts-jest": "^23.10.4",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.1.6",
     "xmlhttprequest": "^1.8.0"
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
-    "object-path-immutable": "^1.0.1",
+    "object-path-immutable": "^3.0.0",
     "pluralize": "^7.0.0",
-    "redux-actions": "^2.2.1"
+    "redux-actions": "^2.6.4"
   },
   "peerDependencies": {
     "redux": ">=3.0.0",
@@ -66,7 +78,10 @@
     "rxjs": ">=5.0.0"
   },
   "lint-staged": {
-    "**/*.{json,md}": ["prettier --write", "git add"],
+    "**/*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ],
     "**/*.ts": [
       "tslint --project tsconfig.json --config tslint-prettify.json --fix",
       "prettier --write",
@@ -76,24 +91,31 @@
   "babel": {
     "env": {
       "es5": {
-        "plugins": ["transform-es2015-modules-commonjs"]
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
       },
       "es2015": {}
     }
   },
   "jest": {
     "automock": false,
-    "moduleFileExtensions": ["ts", "js"],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
     "transform": {
-      "^.+\\.(j|t)sx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.(j|t)sx?$": "ts-jest"
     },
-    "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/.*)"],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!lodash-es/.*)"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
     "notify": false,
     "verbose": true,
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "tsconfig.jest.json"
+        "tsConfig": "tsconfig.jest.json"
       }
     }
   },

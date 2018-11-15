@@ -1,5 +1,4 @@
 import { __assign } from "./assign";
-
 import { AjaxResponse, Observable } from "./rxjs-imports";
 
 export { __assign }; // workaround to stop TS removing __assign import as unused
