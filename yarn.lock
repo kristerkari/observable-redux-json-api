@@ -55,10 +55,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
   integrity sha512-wNMwXSUcwyYajtbayfPp55tSayuDVU6PfY5gzvRSj80UvxdXEJOVPnUVajaOp7NgXLm+1e2ZDLULmpsU9vDvQw==
 
-"@types/node@^10.12.8":
-  version "10.12.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.8.tgz#d0a3ab5a6e61458c492304e2776ac136b81db927"
-  integrity sha512-INamyRZG4rW3lDCUmwVd5Xho/bXvQm/v1yP8V0UN1RuInU7RoWoaO570b+yLX4Ia/0szsx1wa8VzcsVlsvbWLA==
+"@types/node@^10.12.13":
+  version "10.12.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.13.tgz#ce355eda06f793b42f75b23cd26d328b12649b70"
+  integrity sha512-zMxYcuQETlp8Lw9trEuKa313Zapm9w3EXZ6pT53q229VsHvo9jWDfWq3rUC8SyFfnPexn7uAuC+q3X+GmnTnDg==
 
 "@types/pluralize@^0.0.29":
   version "0.0.29"
