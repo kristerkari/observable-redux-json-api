@@ -1985,6 +1985,13 @@ is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-plain-object@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.0.tgz#47bfc5da1b5d50d64110806c199359482e75a928"
+  integrity sha512-tZIpofR+P05k8Aocp7UI/2UTa9lTJSebCXpFFoR9aibpokDj/uXBsJ8luUu0tTVYKkMU6URDUuOfJZ7koewXvg==
+  dependencies:
+    isobject "^4.0.0"
+
 is-posix-bracket@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
@@ -2048,6 +2055,11 @@ isobject@^2.0.0:
 isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
+
+isobject@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
+  integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -3080,12 +3092,12 @@ object-keys@^1.0.8:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
 
-object-path-immutable@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/object-path-immutable/-/object-path-immutable-3.0.0.tgz#c242a7e6648c64e37bd9f363bbf2fb91ced69ff5"
-  integrity sha512-T/KtAbX2oNH6gjJdkI7kXxEh9W+Zyt/Cie+XXW8HkzpKFO8bKtI+jOldyGHkxJu0FzGWWYlcbPh3zVh2GY0+qg==
+object-path-immutable@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/object-path-immutable/-/object-path-immutable-4.0.2.tgz#f20241d116c549e66ada81ae522a7dc840270b6b"
+  integrity sha512-JP2gvb7d14tioXL5M86x4258jX+5aJhlAeiWD9t8yvjVhuGmcJEFHsyo2NtlxYhaiMjAI3P4FCTmNm2SMZYRRg==
   dependencies:
-    is-plain-object "^2.0.4"
+    is-plain-object "^3.0.0"
 
 object-visit@^1.0.0:
   version "1.0.1"
