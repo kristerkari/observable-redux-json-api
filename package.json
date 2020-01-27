@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
-    "object-path-immutable": "^3.0.0",
+    "object-path-immutable": "^4.1.0",
     "pluralize": "^7.0.0",
     "redux-actions": "^2.6.4"
   },
